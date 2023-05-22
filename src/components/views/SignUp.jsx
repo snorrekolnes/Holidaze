@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import authorizationSlice, { setCredentials } from "../../store/modules/authorizationSlice";
 import { useLoginMutation } from "../../store/modules/authApiSlice";
 import {setLoadingState} from "../../store/modules/loaderSlice"
-import { Avatar, CssBaseline, TextField, Paper, Grid, Button, Typography} from "@mui/material";
+import { Avatar, CssBaseline, TextField, Paper, Grid, Button, Typography, Checkbox} from "@mui/material";
 import { setError } from "../../store/modules/errorSlice";
 
 
@@ -59,6 +59,8 @@ import Typography from "@mui/material";
            const [name, setName] =useState();
             const [email, setEmail] = useState();
             const [password, setPassword] = useState();
+            const [venueManager, setVenueManager] = useState(true);
+            
             /*
             useEffect(() => {
               dispatch(setCredentials());
@@ -70,6 +72,7 @@ import Typography from "@mui/material";
                 email,
                 name,
                 password,
+                venueManager,
               })
               console.log(response)
               if (response.id) {
@@ -183,7 +186,6 @@ import Typography from "@mui/material";
                                   borderColor: 'white',
                                 }}
                             }}
-                            
                             variant="outlined"
                             margin="normal"
                             required
@@ -194,6 +196,11 @@ import Typography from "@mui/material";
                             type="password"
                             onChange={e => setPassword(e.target.value)}
                           />
+                                {console.log(venueManager)}
+                                <Checkbox 
+                                defaultChecked
+                                onChange={e => setVenueManager(e.target.checked)}
+                                />
                           <Button 
                                   sx={{ color: 'black', 
                                 backgroundColor: 'white', 
@@ -202,7 +209,6 @@ import Typography from "@mui/material";
                                   bgcolor: "pink",
                                   color: "white"
                                 }
-                              
                               }}
 
                             type="submit"

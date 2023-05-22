@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
+import CreateVenue from '../components/views/CreateVenue';
 import Home from '../components/views/HomePage';
 //import Signup from "../components/views/SignUp";
 import  Login  from "../components/views/LoginMain";
@@ -22,6 +23,7 @@ function Router() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/profile" element={<Profile/>}/>
+                <Route path="/createvenue" element={<CreateVenue/>}/>
             </Routes>
         </>
     );
