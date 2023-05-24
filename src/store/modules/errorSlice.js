@@ -4,14 +4,14 @@ const errorSlice = createSlice({
     name: 'error',
     initialState: {
         isError: false,
-        errorMessage: 'Sorry we have a bad issue :('
+        errorMessage: 'Sorry we had an error'
     },
-    reducers: { // here have functions which will amend the state only
-        SET_ERROR: (state, action) => { // The SET_ERROR is a reducer type
+    reducers: { 
+        SET_ERROR: (state, action) => { 
             console.log(action)
             state.isError = action.payload;
         },
-        SET_ERROR_MESSAGE: (state, action) => { // The SET_ERROR_MESSAGE is a reducer type
+        SET_ERROR_MESSAGE: (state, action) => { 
             console.log(action)
             state.errorMessage = action.payload || state.errorMessage;
         }
@@ -24,7 +24,7 @@ export default reducer;
 const {SET_ERROR} = actions;
 const {SET_ERROR_MESSAGE} = actions;
 
-// Actions
+
 
 export const setError = (hasError, errorMessage) => (dispatch) => {
     console.log(hasError)

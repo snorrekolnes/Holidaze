@@ -2,18 +2,15 @@ import {createSlice} from '@reduxjs/toolkit'
 import {setLoadingState} from "./loaderSlice"
 import {setError} from "./errorSlice"
 
-// Slice
-// A function that accepts an initial state, an object full of reducer functions,
-// and a “slice name”, and automatically generates action creators and action types that correspond to the reducers and state.
-//The reducer argument is passed to createReducer()
+
 const venueSliceById = createSlice({
     name: 'singleVenue',
-    initialState: { // Here is the initial state // = data
+    initialState: { 
         singleVenue: {
 
         },
     },
-    reducers: { // Here are the functions which amend the state // mutations for state
+    reducers: { 
         SET_SINGLE_VENUE: (state, action) => {
            console.log("SET_SINGLE_PRODUCT: action.payload", action.payload)
             state.singleVenue = action.payload;
@@ -32,15 +29,15 @@ export const fetchProductById = (id) => async dispatch => {
         response = await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}?_bookings=true`);
         const data = await response.json();
         console.log("Single Product Data: ", data);
-        // dispatch an action with the retrieved data
+
         dispatch(SET_SINGLE_VENUE(data));
         dispatch(setLoadingState(false));
     } catch (e) {
-        // handle any errors that occur during the fetch
+
         console.log("here error happened :( ")
         return console.error(e.message);
     }
-    // check if the response is not ok
+
     if (response.ok) {
         console.log("the response is correct");
 

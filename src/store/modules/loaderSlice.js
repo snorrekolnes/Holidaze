@@ -5,7 +5,7 @@ const loaderSlice = createSlice({
     initialState: {
         isLoading: false
     },
-    reducers: { // here have functions which will amend the state only
+    reducers: { 
         SET_LOADER: (state, action) => {
             state.isLoading = action.payload;
         }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { json } from "react-router-dom";
+import { json, NavLink } from "react-router-dom";
 import authorizationSlice, { selectToken, selectUser, setCredentials } from "../../store/modules/authorizationSlice";
 import { setError } from "../../store/modules/errorSlice";
 
@@ -70,7 +70,21 @@ const username = JSON.parse(name)
     })()
     
     return (
-       <div></div>
+       <div>
+<NavLink to="/update">
+            <li className="mr-3">
+              <span
+                id="create-btn"
+                className="inline-block mt-40 text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+                >Create Venue
+            </span>
+            </li>
+            </NavLink>
+
+
+
+       </div>
     )
     }
 

@@ -28,7 +28,7 @@ function VenuesById() {
      
 
    const formattedDate = format(new Date(),'yyyy')
-console.log(formattedDate)
+    console.log(formattedDate)
     return (
         <div className='background bg-HOLIDAZE-BROWN'>
         <div 

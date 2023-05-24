@@ -6,6 +6,7 @@ import Home from '../components/views/HomePage';
 import  Login  from "../components/views/LoginMain";
 import Profile from '../components/views/Profile';
 import Signup from '../components/views/SignUp';
+import Update from '../components/views/UpdateAvatar';
 import VenuesById from '../components/views/VenueById';
 
 
@@ -26,6 +27,7 @@ function Router() {
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/createvenue" element={<CreateVenue/>}/>
                 <Route path="/venuesbyid/:id" element={<VenuesById/>}/>
+                <Route path="/update" element={<Update/>}/>
             </Routes>
         </>
     );
