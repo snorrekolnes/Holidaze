@@ -12,45 +12,38 @@ import Header from "../Header";
 
 
 function UpdateAvatar() {
-    const {name, token} = useSelector(state => state.auth)
+    const {token} = useSelector(state => state.auth)
+const name = localStorage.user
         console.log(name, token)
         const username = JSON.parse(name)
         const [avatar, setAvatar] = useState();
+        console.log(username)
     const dispatch = useDispatch();
     async function getUpdate(name) {
-    const response =  fetch(`https://api.noroff.dev/api/v1/holidaze/profiles/${name}/media`, {
-    method: "PUT",
-    headers:{ "content-Type": "application/json",
-    "Authorization": `Bearer ${token}`,
-
-    },
-    body: JSON.stringify({
-        username
-    })
-})
-    const pictureData = response.json();
-    console.log(pictureData);
-if(response.ok) {
-    console.log("bid made: ", pictureData);
-location.href = "/profile.html";
-}
-else {
-    console.log("generalError")
-}
-    }
+        try {
+            const response =   await fetch(`https://api.noroff.dev/api/v1/holidaze/profiles/${name}/media`, {
+                  method: 'PUT',
+                  headers: {
+                    "Authorization": `Bearer ${token}`
+                  },  
+                  body: JSON.stringify(avatar)
+                })
+                  const data = await response.json()
+                  return data
+           }
+               catch (error) {
+                  console.log("oops", error)
+               }
+               //   .then(data => data.json())
+               }
 
 const handleSubmit = async e => {
     e.preventDefault();
-      const response = getUpdate({
-        avatar,
-      })
+      const response = await getUpdate(username)
       console.log(response)
       if (response.avatar) {
         console.log("Success")
-          localStorage.setItem('accessToken', response.accessToken);
-          localStorage.setItem('user', JSON.stringify(response.name));
           localStorage.setItem('avatar', JSON.stringify(response.avatar));
-          window.location.href = "/";
         
       } else {
         dispatch(setError(true,"some error happened"));
