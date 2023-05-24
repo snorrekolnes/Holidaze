@@ -197,12 +197,19 @@ import Typography from "@mui/material";
                             onChange={e => setPassword(e.target.value)}
                           />
                                 {console.log(venueManager)}
+                                <Typography sx={{
+                                  margin: '10px',
+                                }}
+                        className="text-white m-auto mt-60" component="h1" variant="h7">
+                          Venue Manager?
+                        </Typography>
                                 <Checkbox 
                                 defaultChecked
                                 onChange={e => setVenueManager(e.target.checked)}
                                 />
                           <Button 
                                   sx={{ color: 'black', 
+                                  mt:3,
                                 backgroundColor: 'white', 
                                 borderColor: 'white',
                                 ":hover": {

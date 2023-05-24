@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import {useSelector} from "react-redux";
 import Router from "./routes/Router";
 import Footer from "./components/Footer";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 function App() {
 
@@ -11,10 +13,13 @@ function App() {
   
   return (
     <>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+
    <Header/>
     <Router/>
     {isLoading && <Loader/>}
     <Footer/>
+    </LocalizationProvider>
     </>
 
   )

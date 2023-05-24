@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background {
+
+    background: url(./assets/img/scott-webb-UjupleczBOY-unsplash.jpg), rgba(64, 40, 26, 0.42);
+
+}
+.venuename {
+    text-overflow: ellipsis !important;
+}
+
+.hero {
+    background: url(./assets/img/hero.jpg);
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+}

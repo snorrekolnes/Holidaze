@@ -6,6 +6,7 @@ import Home from '../components/views/HomePage';
 import  Login  from "../components/views/LoginMain";
 import Profile from '../components/views/Profile';
 import Signup from '../components/views/SignUp';
+import VenuesById from '../components/views/VenueById';
 
 
 //import CreateVenue from "../components/views/CreateVenue";
@@ -24,6 +25,7 @@ function Router() {
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/createvenue" element={<CreateVenue/>}/>
+                <Route path="/venuesbyid/:id" element={<VenuesById/>}/>
             </Routes>
         </>
     );

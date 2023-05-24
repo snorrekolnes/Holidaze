@@ -3,12 +3,13 @@ import {NavLink} from "react-router-dom";
 import Holidaze from "../assets/img/Holidaze-logo-1.svg"
 import { useState } from "react";
 import Profile from "../assets/img/Holidaze-profile.svg"
-
+import Profile2 from "../assets/img/Profile.png"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
    const logout = () => {
     localStorage.clear();
+    window.location.reload();
   }
     
 return (
@@ -53,8 +54,8 @@ return (
           id="nav-content"
         >
          <ul className="list-reset lg:flex justify-end flex-1 items-center">
-          <NavLink to="Signup">
-         <li className="mr-3">
+         {!localStorage.accessToken && <> <NavLink to="Signup">
+        <li className="mr-3">
               <span
                 id="signUp-btn"
                 className="inline-block text-HOLIDAZE-BLACK font-Josefin no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
@@ -73,6 +74,17 @@ return (
                 >Login
             </span >
             </li>
+            </NavLink> </> }
+            <NavLink to="createvenue">
+            <li className="mr-3">
+              <span
+                id="logout-btn"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+                >Create Venue
+            </span>
+            </li>
+            </NavLink>
             <li className="mr-3">
               <span onClick={logout}
                 id="logout-btn"
@@ -81,10 +93,10 @@ return (
                 >Log Out
             </span >
             </li>
-            </NavLink>
+
             <NavLink to="Profile">
-            <li id="profile-btn" className="ml-3 laptop:ml-0">
-              <img src={Profile} alt="profile" />
+            <li id="profile-btn" className="ml-3 w-10 laptop:ml-0">
+              <img src={Profile2} alt="profile" />
             </li>
             </NavLink>
          </ul>
@@ -95,42 +107,50 @@ return (
           id="nav-content"
         >
          <ul className="list-reset lg:flex justify-end flex-1 items-center">
-          <NavLink to="Signup">
-         <li className="mr-3">
+         {!localStorage.accessToken && <> <NavLink to="Signup">
+        <li className="mr-3">
               <span
-                id="create-btn"
+                id="signUp-btn"
                 className="inline-block text-HOLIDAZE-BLACK font-Josefin no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                href=""
+                href="./create.html"
                 >Sign Up
          </span >
             </li>
             </NavLink>
             <li id="credits-show" className="mr-3"></li>
-            <NavLink to="login">
+            <NavLink to="Login">
             <li className="mr-3">
               <span
-                id="logout-btn"
+                id="login-btn"
                 className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
                 href="#"
                 >Login
             </span >
             </li>
+            </NavLink> </> }
+            {localStorage.venueManager === "true" &&      <NavLink to="createvenue">
             <li className="mr-3">
+              <span
+                id="create-btn"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#"
+                >Create Venue
+            </span>
+            </li>
+            </NavLink>}
+            {localStorage.accessToken && <li className="mr-3">
               <span onClick={logout}
                 id="logout-btn"
-                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:cursor-pointer  hover:text-gray-200 hover:text-underline py-2 px-4"
                 href="#"
                 >Log Out
             </span >
+            </li>}
+            {localStorage.accessToken &&     <NavLink to="Profile">
+            <li id="profile-btn" className="ml-3 w-10 laptop:ml-0">
+              <img src={Profile2} alt="profile" />
             </li>
-            </NavLink>
-            <li id="profile-btn" className="ml-3 laptop:ml-0">
-              <img src="" alt="" />
-            </li>
-
-
-
-
+            </NavLink>}
          </ul>
         </div>
       </nav>

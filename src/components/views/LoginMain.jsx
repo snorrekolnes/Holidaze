@@ -79,6 +79,7 @@ import Typography from "@mui/material";
                
                   localStorage.setItem('accessToken', response.accessToken);
                   localStorage.setItem('user', JSON.stringify(response.name));
+                  localStorage.setItem('venueManager', JSON.stringify(response.venueManager));
                   window.location.href = "/";
                 
               } else {
@@ -166,7 +167,8 @@ import Typography from "@mui/material";
                             onChange={e => setPassword(e.target.value)}
                           />
                           <Button 
-                                  sx={{ color: 'black', 
+                                  sx={{ color: 'black',
+                                  mt:3, 
                                 backgroundColor: 'white', 
                                 borderColor: 'white',
                                 ":hover": {

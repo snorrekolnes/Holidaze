@@ -52,14 +52,14 @@ export const fetchVenues = () => async (dispatch) => {
 // Fetch single product
 export const fetchProductById = (id) => async dispatch => {
     dispatch(setLoadingState(true));
-    dispatch(SET_SINGLE_PRODUCT({}));
+    dispatch(SET_SINGLE_VENUE({}));
     let response
     try {
         response = await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`);
         const data = await response.json();
         console.log("Single Product Data: ", data);
         // dispatch an action with the retrieved data
-        dispatch(SET_SINGLE_PRODUCT(data));
+        dispatch(SET_SINGLE_VENUE(data));
         dispatch(setLoadingState(false));
     } catch (e) {
         // handle any errors that occur during the fetch

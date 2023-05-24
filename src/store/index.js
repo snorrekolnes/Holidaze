@@ -6,14 +6,16 @@ import loaderSlice from "./modules/loaderSlice"
 import errorSlice from "./modules/errorSlice";
 import Login from '../components/views/LoginMain';
 import authorizationSlice from './modules/authorizationSlice';
+import venueByIdSlice from './modules/venueByIdSlice';
+
 
 
 
 
 const reducer = combineReducers({
     auth:authorizationSlice,
-    // here we will be adding reducers
-    venues: productsSlice, // NOTE: Remember this name you will use with useSelector
+    singleVenue: venueByIdSlice,
+    venues: productsSlice, 
     loader: loaderSlice,
     error: errorSlice
 })
