@@ -49,7 +49,7 @@ const username = JSON.parse(name)
            return data
     }
         catch (error) {
-           console.log("fuck", error)
+           console.log("oops", error)
         }
         //   .then(data => data.json())
         }
