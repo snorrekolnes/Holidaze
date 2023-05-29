@@ -44,7 +44,7 @@ function UpdateManagerState() {
     }
     return (
         <div>
-            <form className="form mt-40 text-white flex flex-col  lMobile:w-80 m-auto items-center"
+            <form className="form mt-40 mb-40 bg-HOL text-white flex flex-col  lMobile:w-80 m-auto items-center"
                   noValidate
                   onSubmit={handleSubmit}>
                 <Typography sx={{
