@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {setLoadingState} from "../../store/modules/loaderSlice"
-import { Avatar, CssBaseline, TextField, Paper, Grid, Button, Typography, Checkbox} from "@mui/material";
+import {  CssBaseline, TextField, Button, Typography, Checkbox} from "@mui/material";
 import { setError } from "../../store/modules/errorSlice";
-import Header from "../Header";
 import { Navigate } from "react-router-dom";
 
 
@@ -40,25 +38,21 @@ import { Navigate } from "react-router-dom";
             })
               const data = await response.json()
               return data
-
            }
            catch (error) {
-              console.log("fuck", error)
+              console.log("sorry", error)
            }
-           //   .then(data => data.json())
            }
           
           export default function CreateVenue() {
             const {token} = useSelector(state => state.auth)
- console.log(token)
+            console.log(token)
            const dispatch = useDispatch();
-           // const classes = useStyles();
             const [name, setName] = useState();
             const [media, setMedia] = useState([]);
             const [description, setDescription] = useState();
             const [price, setPrice] = useState();
             const [maxGuests, setGuests] = useState();
-          //  const [rating, setRating] = useState();
             const [wifi, setWifi] = useState(true);
             const [breakfast, setBreakfast] = useState(true);
             const [pets, setPets] = useState(true);
@@ -69,14 +63,6 @@ import { Navigate } from "react-router-dom";
             const [country, setCountry] = useState();
             const [continent, setContinent] = useState();
 
-
-            
-            
-            /*
-            useEffect(() => {
-              dispatch(setCredentials());
-          }, [dispatch]);*/
-          
             const handleSubmit = async e => {
             e.preventDefault();
               const response = await createTheVenue({
@@ -94,17 +80,15 @@ import { Navigate } from "react-router-dom";
                 zip,
                 city,
                 country,
+                continent,
               })
-         
-              
               console.log(response)
               if (response) {
                 console.log("Success")
                { <Navigate to="/home"/>}
                 
               } else {
-                dispatch(setError(true,"some error happened"));
-              //  console.log("Failed", "error");
+                dispatch(setError(true,"An error happened"));
             }}
             return (
                       <div className="mt-20 min-h-screen pb-10 flex flex-col  items-center m-auto bg-HOLIDAZE-BROWN" >
@@ -202,8 +186,6 @@ import { Navigate } from "react-router-dom";
                                   borderColor: 'white',
                                 }}
                             }}
-                            
-
                             variant="outlined"
                             margin="normal"
                             required
@@ -212,7 +194,6 @@ import { Navigate } from "react-router-dom";
                             name="password"
                             label="description"
                             type="description"
-
                             onChange={e => setDescription(e.target.value)}
                           />
                            <TextField className="text-white"
@@ -452,7 +433,6 @@ import { Navigate } from "react-router-dom";
                           Wifi
                         </Typography>
                           <Checkbox 
-                           
                                 defaultChecked
                                 onChange={e => setWifi(e.target.checked)}
                                 />
@@ -508,7 +488,5 @@ import { Navigate } from "react-router-dom";
                           </Button>
                         </form>
                       </div>
-                  
             )
-                   
       }

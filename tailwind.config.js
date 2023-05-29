@@ -14,8 +14,8 @@ export default {
       colors: {
         "HOLIDAZE-BROWN": "#40281A",
         "HOLIDAZE-BLACK": "#0A0D0A",
-        "SWIMMER-GRAY": "D9D9D9",
-        "SWIMMER-BROWN": "#BF895A",
+        "HOLIDAZE-GRAY": "D9D9D9",
+        "HOLIDAZE-BROWN-2": "#BF895A",
       },
       backgroundImage:
          {

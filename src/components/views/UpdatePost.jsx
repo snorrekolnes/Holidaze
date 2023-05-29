@@ -1,16 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {setLoadingState} from "../../store/modules/loaderSlice"
-import { Avatar, CssBaseline, TextField, Paper, Grid, Button, Typography, Checkbox} from "@mui/material";
+import {  CssBaseline, TextField, Button, Typography, Checkbox} from "@mui/material";
 import { setError } from "../../store/modules/errorSlice";
-import Header from "../Header";
 import { Navigate, useParams } from "react-router-dom";
 
-
-
-
          async function CreateTheVenue({name,id, description, price, media, maxGuests, token, wifi, parking, breakfast, pets, address, city, zip, country, continent}) {
-            
            try {
         const response =   await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`, {
               method: 'PUT',
@@ -70,7 +64,6 @@ import { Navigate, useParams } from "react-router-dom";
             const [continent, setContinent] = useState();
 
             useEffect(() => {
-            
                 async function getVenue(){
                     try {
                         const responseGet =   await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`, {
@@ -133,6 +126,7 @@ import { Navigate, useParams } from "react-router-dom";
                 city,
                 country,
                 id,
+                continent,
               })
               console.log(response)
               if (response) {
@@ -140,7 +134,6 @@ import { Navigate, useParams } from "react-router-dom";
                { <Navigate to="/home"/>}   
               } else {
                 dispatch(setError(true,"some error happened"));
-              //  console.log("Failed", "error");
             }}
             return (
                       <div className="mt-20 min-h-screen pb-10 flex flex-col  items-center m-auto bg-HOLIDAZE-BROWN" >
@@ -509,8 +502,6 @@ import { Navigate, useParams } from "react-router-dom";
                           Wifi
                         </Typography>
                           <Checkbox 
-                         //   labelStyle={{color: 'white'}}
-                          //  iconStyle={{fill: 'white'}}
                                 defaultChecked
                                 onChange={e => setWifi(e.target.checked)}
                                 />

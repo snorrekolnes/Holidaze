@@ -1,39 +1,7 @@
-import { useRef, useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useState, } from "react";
 import { useDispatch } from "react-redux";
-import authorizationSlice, { setCredentials } from "../../store/modules/authorizationSlice";
-import { useLoginMutation } from "../../store/modules/authApiSlice";
-import {setLoadingState} from "../../store/modules/loaderSlice"
-import { Avatar, CssBaseline, TextField, Paper, Grid, Button, Typography, Checkbox} from "@mui/material";
+import { CssBaseline, TextField, Button, Typography, Checkbox} from "@mui/material";
 import { setError } from "../../store/modules/errorSlice";
-
-
-
-
-
-/*
-
-import { Button } from "@mui/material";
-import Avatar from "@mui/material";
-import CssBaseline from "@mui/material";
-import TextField from "@mui/material";
-import Paper from "@mui/material";
-import Grid from "@mui/material";
-import Typography from "@mui/material";
-
- await fetch('https//:api.noroff.dev/api/v1/holidaze/auth/login', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(theCredentials)
-            })
-
-*/
-
-
-
 
          async function signUpUser(theCredentials) {
            try {
@@ -48,24 +16,17 @@ import Typography from "@mui/material";
               return data
            }
            catch (error) {
-              console.log("fuck", error)
+              console.log("Sorry an error happened", error)
            }
-           //   .then(data => data.json())
            }
           
           export default function Signup() {
            const dispatch = useDispatch();
-           // const classes = useStyles();
            const [name, setName] =useState();
             const [email, setEmail] = useState();
             const [password, setPassword] = useState();
             const [venueManager, setVenueManager] = useState(true);
             
-            /*
-            useEffect(() => {
-              dispatch(setCredentials());
-          }, [dispatch]);*/
-          
             const handleSubmit = async e => {
             e.preventDefault();
               const response = await signUpUser({
@@ -84,7 +45,6 @@ import Typography from "@mui/material";
                 
               } else {
                 dispatch(setError(true,"some error happened"));
-              //  console.log("Failed", "error");
             }}
             return (
                       <div className="mt-20 h-screen flex flex-col  items-center m-auto bg-HOLIDAZE-BROWN" >
@@ -226,8 +186,6 @@ import Typography from "@mui/material";
                             Sign Up
                           </Button>
                         </form>
-                      </div>
-                  
-            )
-                   
+                      </div>   
+            )    
       }

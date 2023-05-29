@@ -1,9 +1,8 @@
-import { Typography, Checkbox, Button, Chip, CardContent, Box, Card } from "@mui/material";
+import { Typography, Button, Chip, CardContent, Box, Card } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { json, NavLink } from "react-router-dom";
-import authorizationSlice, { selectToken, selectUser, setCredentials } from "../../store/modules/authorizationSlice";
-import { setError } from "../../store/modules/errorSlice";
+import { NavLink } from "react-router-dom";
+
 
 
 function ProfileVenues() {
@@ -73,19 +72,6 @@ const username = JSON.parse(name)
           <img className='object-cover m-0-auto h-1/2 w-screen items-center' src={
             venue.media.length>0? venue.media[0]:"https://images.unsplash.com/photo-1542718610-a1d656d1884c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
           }alt="" />
-          {/*
-          <Box sx={{ display: 'flex', alignItems: 'center', pr:5, pl: 1, pb: 0 }}>
-            <Typography aria-label="previous">
-            ${venue.price}
-            </Typography>
-            <Typography aria-label="play/pause">
-             
-            </Typography>
-            <Typography sx={{ml:20}}  aria-label="next">
-                 {venue.location.city}
-            </Typography>
-          </Box>*/
-}
 <div className="card-info mt-5 items-center justify-center flex flex-row">
 <Chip
 sx={{
@@ -132,15 +118,10 @@ sx={{
     whiteSpace: 'normal',
   },
 }}
-
 label={` ${venue.maxGuests} Guests`} color="success" variant="outlined" />
-
 </div>
         </Box>
-
       </Card>
-
-
             </div>
         ))}
         </div>

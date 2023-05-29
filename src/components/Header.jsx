@@ -1,8 +1,7 @@
 //import React from 'react';
-import {Navigate, NavLink} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import Holidaze from "../assets/img/Holidaze-logo-1.svg"
 import { useState } from "react";
-import Profile from "../assets/img/Holidaze-profile.svg"
 import Profile2 from "../assets/img/Profile.png"
 
 
@@ -159,7 +158,4 @@ return (
       
 )
 }
-
-
-
 export default Header;

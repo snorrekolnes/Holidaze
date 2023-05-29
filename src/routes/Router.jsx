@@ -2,7 +2,6 @@ import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import CreateVenue from '../components/views/CreateVenue';
 import Home from '../components/views/HomePage';
-//import Signup from "../components/views/SignUp";
 import  Login  from "../components/views/LoginMain";
 import Profile from '../components/views/Profile';
 import Signup from '../components/views/SignUp';
@@ -12,12 +11,6 @@ import UpdateManagerState from '../components/views/UpdateManagerState';
 import ProfileVenues from '../components/views/ProfileVenues';
 import ProfileBookings from '../components/views/ProfileBookings';
 import UpdateVenue from '../components/views/UpdatePost';
-//import CreateVenue from "../components/views/CreateVenue";
-//import Profile from "../components/views/Profile";
-//import LoginForm from "../components/views/LoginReduxTest";
-
-
-
 
 function Router() {
     return (

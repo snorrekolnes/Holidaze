@@ -1,41 +1,7 @@
-import { useRef, useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-
+import {useState,} from "react";
 import { useDispatch } from "react-redux";
-import authorizationSlice, { setCredentials } from "../../store/modules/authorizationSlice";
-import { useLoginMutation } from "../../store/modules/authApiSlice";
-import {setLoadingState} from "../../store/modules/loaderSlice"
-import { Avatar, CssBaseline, TextField, Paper, Grid, Button, Typography} from "@mui/material";
+import { CssBaseline, TextField, Button, Typography} from "@mui/material";
 import { setError } from "../../store/modules/errorSlice";
-import Header from "../Header";
-
-
-
-
-
-
-
-/*
-
-import { Button } from "@mui/material";
-import Avatar from "@mui/material";
-import CssBaseline from "@mui/material";
-import TextField from "@mui/material";
-import Paper from "@mui/material";
-import Grid from "@mui/material";
-import Typography from "@mui/material";
-
- await fetch('https//:api.noroff.dev/api/v1/holidaze/auth/login', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(theCredentials)
-            })
-
-*/
-
-
 
 
          async function loginUser(theCredentials) {
@@ -49,24 +15,15 @@ import Typography from "@mui/material";
             })
               const data = await response.json()
               return data
-
            }
            catch (error) {
-              console.log("fuck", error)
+              console.log("sorry an error happened", error)
            }
-           //   .then(data => data.json())
            }
-          
           export default function Login() {
            const dispatch = useDispatch();
-           // const classes = useStyles();
             const [email, setEmail] = useState();
             const [password, setPassword] = useState();
-            /*
-            useEffect(() => {
-              dispatch(setCredentials());
-          }, [dispatch]);*/
-          
             const handleSubmit = async e => {
             e.preventDefault();
               const response = await loginUser({
@@ -76,15 +33,12 @@ import Typography from "@mui/material";
               console.log(response)
               if (response.accessToken) {
                 console.log("Success")
-               
                   localStorage.setItem('accessToken', response.accessToken);
                   localStorage.setItem('user', JSON.stringify(response.name));
                   localStorage.setItem('venueManager', JSON.stringify(response.venueManager));
                   window.location.href = "/";
-                
               } else {
-                dispatch(setError(true,"some error happened"));
-              //  console.log("Failed", "error");
+                dispatch(setError(true,"An error happened"));
             }}
             return (
                       <div className="mt-20 h-screen flex flex-col  items-center m-auto bg-HOLIDAZE-BROWN" >
@@ -92,8 +46,6 @@ import Typography from "@mui/material";
                         <Typography sx={{
                                   margin: '70px',
                                 }}
-                        
-                        
                         className="text-white m-auto mt-60" component="h1" variant="h5">
                           Login
                         </Typography>
@@ -128,7 +80,6 @@ import Typography from "@mui/material";
                       name="email"
                       label="email"
                       type="email"
-
                       onChange={e => setEmail(e.target.value)}
                           />
                           <TextField className="text-white"
@@ -153,8 +104,6 @@ import Typography from "@mui/material";
                                   borderColor: 'white',
                                 }}
                             }}
-                            
-
                             variant="outlined"
                             margin="normal"
                             required
@@ -186,10 +135,8 @@ import Typography from "@mui/material";
                             Login
                           </Button>
                         </form>
-                      </div>
-                  
-            )
-                   
+                      </div>     
+            )    
       }
     
     

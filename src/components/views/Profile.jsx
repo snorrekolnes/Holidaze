@@ -1,9 +1,8 @@
 import { Typography, Checkbox, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { json, NavLink } from "react-router-dom";
-import authorizationSlice, { selectToken, selectUser, setCredentials } from "../../store/modules/authorizationSlice";
-import { setError } from "../../store/modules/errorSlice";
+import {  NavLink } from "react-router-dom";
+
 
 
 function Profile() {

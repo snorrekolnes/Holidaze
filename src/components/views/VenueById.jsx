@@ -1,16 +1,10 @@
 import {useDispatch, useSelector} from 'react-redux';
-//import { fetchProductById} from '../../store/modules/venueSlice';
-//import {Link} from 'react-router-dom';
-//import ErrorComponent from "../../components/shared/ErrorComponent";
-import {useEffect, useMemo, useState} from 'react';
+import {useEffect,  useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchProductById } from '../../store/modules/venueByIdSlice';
-import { Typography, Chip, Collapse, Card, Box, IconButton, CardContent, Button, CardHeader, Avatar, CardActions, CardMedia, Checkbox, TextField } from '@mui/material';
-import { Fullscreen } from '@mui/icons-material';
+import { Typography, Card,  IconButton, CardContent, Button, CardHeader,  Checkbox, TextField } from '@mui/material';
 import { format } from 'date-fns';
-import Table from '@mui/joy/Table';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 
 
@@ -31,12 +25,6 @@ function VenuesById() {
     const [guests, setGuests] = useState();
     const [venueId, setVendueId] = useState();
     console.log(dateFrom, dateTo, guests)
-
-/*
-    const handleBookingSubmit = async e => {
-        e.preventDefault();
-        handleBooking(id, token)
-}*/
     const handleBooking = async ( id, token) => {
         try{
         const response =   await fetch('https://api.noroff.dev/api/v1/holidaze/bookings?_venue=true', {

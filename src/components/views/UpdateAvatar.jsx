@@ -1,14 +1,6 @@
-import {useRef, useState, useEffect} from "react";
-
-
+import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import authorizationSlice, {setCredentials} from "../../store/modules/authorizationSlice";
-import {useLoginMutation} from "../../store/modules/authApiSlice";
-import {setLoadingState} from "../../store/modules/loaderSlice"
-import {Avatar, CssBaseline, TextField, Paper, Grid, Button, Typography} from "@mui/material";
-import {setError} from "../../store/modules/errorSlice";
-import Header from "../Header";
-
+import {TextField, Button, } from "@mui/material";
 
 function UpdateAvatar() {
     const {token} = useSelector(state => state.auth)
@@ -46,13 +38,6 @@ function UpdateAvatar() {
         const response = await updateUserAvatar(avatar);
         console.log("response: ",response);
         window.location.href = "/profile";
-        // if (response.avatar) {
-        //     console.log("Success")
-        //     localStorage.setItem('avatar', JSON.stringify(response.avatar));
-        //
-        // } else {
-        //     dispatch(setError(true, "some error happened"));
-        // }
     }
     return (
         <div>
