@@ -15,12 +15,11 @@ export default {
         "HOLIDAZE-BROWN": "#40281A",
         "HOLIDAZE-BLACK": "#0A0D0A",
         "HOLIDAZE-GRAY": "D9D9D9",
-        "HOLIDAZE-BROWN-2": "#BF895A",
       },
-      backgroundImage:
-         {
-           'hero_pattern': "url('/)"
-         },
+     // backgroundImage:
+      //   {
+      //     'hero_pattern': "url('/)"
+      //   },
       screens: {
 
         'lMobile': '425px',

@@ -167,6 +167,7 @@ import { setError } from "../../store/modules/errorSlice";
                                 defaultChecked
                                 onChange={e => setVenueManager(e.target.checked)}
                                 />
+                                {name && email && password && venueManager && 
                           <Button 
                                   sx={{ color: 'black', 
                                   mt:3,
@@ -184,7 +185,7 @@ import { setError } from "../../store/modules/errorSlice";
                             className="submit"
                           >
                             Sign Up
-                          </Button>
+                          </Button>}
                         </form>
                       </div>   
             )    

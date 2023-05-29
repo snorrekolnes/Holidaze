@@ -115,6 +115,7 @@ import { setError } from "../../store/modules/errorSlice";
 
                             onChange={e => setPassword(e.target.value)}
                           />
+                          {email && password && 
                           <Button 
                                   sx={{ color: 'black',
                                   mt:3, 
@@ -133,7 +134,7 @@ import { setError } from "../../store/modules/errorSlice";
                             className="submit"
                           >
                             Login
-                          </Button>
+                          </Button> }
                         </form>
                       </div>     
             )    

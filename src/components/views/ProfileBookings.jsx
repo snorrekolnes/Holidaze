@@ -28,7 +28,7 @@ const username = JSON.parse(name)
                return data
         }
             catch (error) {
-               console.log("oops", error)
+               console.log("Sorry an error happened", error)
             }
             }
           getUser(username)

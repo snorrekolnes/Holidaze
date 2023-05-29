@@ -37,7 +37,7 @@ import { Navigate, useParams } from "react-router-dom";
             return data
            }
            catch (error) {
-              console.log("fuck", error)
+              console.log("Sorry, there was an error", error)
            }
            }
           

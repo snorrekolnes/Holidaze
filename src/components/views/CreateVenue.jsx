@@ -40,7 +40,7 @@ import { Navigate } from "react-router-dom";
               return data
            }
            catch (error) {
-              console.log("sorry", error)
+              console.log("Sorry an error happened", error)
            }
            }
           

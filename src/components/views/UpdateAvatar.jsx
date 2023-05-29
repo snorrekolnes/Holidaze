@@ -29,7 +29,7 @@ function UpdateAvatar() {
             const data = await response.json()
             return data;
         } catch (error) {
-            console.log("oops", error)
+            console.log("Sorry, there was an error", error)
         }
     }
     const handleSubmit = async e => {

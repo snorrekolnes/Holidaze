@@ -47,7 +47,7 @@ function VenuesById() {
               return data
            }
            catch (error) {
-              console.log("fuck", error)
+              console.log("Sorry, there was an error", error)
            }
         }
    const formattedDate = format(new Date(),'yyyy')
