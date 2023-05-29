@@ -11,8 +11,10 @@ import { NavLink } from 'react-router-dom';
 function Home() {
   const {name, token} = useSelector(state => state.auth)
   console.log(name, token)
+  let venueManager = localStorage.venueManager
+  console.log(venueManager)
   let welcomeName;
-  if (name ){
+  if (name){
     welcomeName = JSON.parse(name)
   }
     const dispatch = useDispatch();
@@ -22,20 +24,9 @@ function Home() {
     useEffect(() => {
         dispatch(fetchVenues());
     }, [dispatch]);
-    // Use useMemo to memoize the products data and only recompute it when necessary.
-    // This can help reduce unnecessary re-rendering.
-    // grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8
-    //if (venues.venue.media === []){         MuiBox-root MuiTypography-root   css-huuc1k
-    //    return venues.venue.media = ["https://unsplash.com/photos/BSQq5dRT_KU"]}
-
     return (
       <div>
-
-
-
-
-
-{localStorage.venueManager   && 
+{localStorage.venueManager ==="true"   && 
              <div className='hero mt-36  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
              <div className='max-w-sm items-center m-auto'>
             <h1 className="my-4  text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
@@ -44,6 +35,7 @@ function Home() {
              <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
                Feeling Lucky?
              </h1>
+             <NavLink to = "createvenue">
              <Button  
                                    sx={{ color: 'black',
                                  
@@ -63,11 +55,9 @@ function Home() {
                              className="submit"
                            >
                              Create A Venue
-                           </Button></div>
+                           </Button></NavLink></div>
             </div>}
-
-
-{localStorage.accessToken  &&  !localStorage.venueManager &&
+{localStorage.accessToken && localStorage.venueManager ==="false" &&
              <div className='hero mt-40  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
              <div className='max-w-sm items-center m-auto'>
             <h1 className="my-4 text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
@@ -107,6 +97,7 @@ function Home() {
             <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
               Book Your Next Holiday With us!
             </h1>
+            <NavLink to = "Signup">
             <Button 
                                   sx={{ color: 'black',
                                 
@@ -117,16 +108,16 @@ function Home() {
                                   bgcolor: "pink",
                                   color: "white"
                                 }
-                              
                               }}
-
                             type="submit"
                             fullWidth
                             variant="contained"
                             className="submit"
                           >
                             Create Account
-                          </Button></div>
+                          </Button>
+                          </NavLink>
+                          </div>
            </div>}
         <div className='background bg-HOLIDAZE-BROWN'>
         <div 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  CssBaseline, TextField, Button, Typography, Checkbox} from "@mui/material";
+import {  CssBaseline, TextField, Button, Typography, Checkbox, Alert} from "@mui/material";
 import { setError } from "../../store/modules/errorSlice";
 import { Navigate } from "react-router-dom";
 
@@ -45,6 +45,8 @@ import { Navigate } from "react-router-dom";
            }
           
           export default function CreateVenue() {
+            const venueManager = localStorage.venueManager
+            console.log(venueManager)
             const {token} = useSelector(state => state.auth)
             console.log(token)
            const dispatch = useDispatch();
@@ -65,6 +67,7 @@ import { Navigate } from "react-router-dom";
 
             const handleSubmit = async e => {
             e.preventDefault();
+           
               const response = await createTheVenue({
                 name,
                 description,
@@ -83,10 +86,9 @@ import { Navigate } from "react-router-dom";
                 continent,
               })
               console.log(response)
-              if (response) {
+              if (response.name && response.price && response.maxGuests && response.description) {
                 console.log("Success")
-               { <Navigate to="/home"/>}
-                
+                window.location.href = "/";
               } else {
                 dispatch(setError(true,"An error happened"));
             }}
@@ -128,10 +130,11 @@ import { Navigate } from "react-router-dom";
                       fullWidth
                       id="email"
                       name="email"
-                      label="name"
-                      type="name"
+                      label="name (required)"
+                      type="name"         
                       onChange={e => setName(e.target.value)}
                           />
+                          
                           <TextField className=""
                          sx={{
                           "& input": {
@@ -192,7 +195,7 @@ import { Navigate } from "react-router-dom";
                             fullWidth
                             id="password"
                             name="password"
-                            label="description"
+                            label="description (required)"
                             type="description"
                             onChange={e => setDescription(e.target.value)}
                           />
@@ -225,12 +228,12 @@ import { Navigate } from "react-router-dom";
                             fullWidth
                             id="price"
                             name="price"
-                            label="price"
+                            label="price (required)"
                             type="number"
                             onChange={e => setPrice(e.target.value)}
                           />
                           <TextField className="text-white"
-                          inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                          inputProps={{ inputMode: 'numeric', pattern: '[10-100]*' }}
                               sx={{
                                 "& input": {
                                     color: 'white',
@@ -258,7 +261,7 @@ import { Navigate } from "react-router-dom";
                             fullWidth
                             id="Max Guests"
                             name="Max Guests"
-                            label="Max Guests"
+                            label="Max Guests (required)"
                             type="number"
                             onChange={e => setGuests(e.target.value)}
                           />
@@ -470,6 +473,7 @@ import { Navigate } from "react-router-dom";
                                 />
                                 </div>
                                 </div>
+                                {name && description && price && maxGuests &&
                           <Button 
                                   sx={{ color: 'black', 
                                 backgroundColor: 'white', 
@@ -485,7 +489,7 @@ import { Navigate } from "react-router-dom";
                             className="submit"
                           >
                             Create
-                          </Button>
+                          </Button>}
                         </form>
                       </div>
             )
