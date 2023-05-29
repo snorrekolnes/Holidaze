@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Button, Typography, Checkbox} from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -40,7 +41,7 @@ function UpdateManagerState() {
         const response = await updateUserManagerState(manager);
         console.log("response: ",response);
         localStorage.setItem('venueManager', JSON.stringify(response.venueManager));
-        window.location.href = "/Profile";
+   //     window.location.href = "/Profile";
     }
     return (
         <div>
@@ -57,7 +58,7 @@ function UpdateManagerState() {
                                 defaultChecked
                                 onChange={e => setVenueManager(e.target.checked)}
                                 />
-                <Button
+            <NavLink to = "/Profile">   <Button
                     sx={{
                         color: 'black',
                         mt: 3,
@@ -75,7 +76,7 @@ function UpdateManagerState() {
                     variant="contained"
                     className="submit"
                     label="SUBMIT"
-                ></Button>
+                ></Button> </NavLink> 
             </form>
         </div>
     )

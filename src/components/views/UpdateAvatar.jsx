@@ -1,6 +1,8 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {TextField, Button, } from "@mui/material";
+import { NavLink } from "react-router-dom";
+
 
 function UpdateAvatar() {
     const {token} = useSelector(state => state.auth)
@@ -37,7 +39,7 @@ function UpdateAvatar() {
         console.log("avatar: ",avatar);
         const response = await updateUserAvatar(avatar);
         console.log("response: ",response);
-        window.location.href = "/Profile";
+    //    window.location.href = "/Profile";
     }
     return (
         <div>
@@ -77,7 +79,7 @@ function UpdateAvatar() {
                            type="email"
                            onChange={e => setAvatar(e.target.value)}
                 />
-                <Button
+         <NavLink to = "/Profile">      <Button
                     sx={{
                         color: 'black',
                         mt: 3,
@@ -95,7 +97,7 @@ function UpdateAvatar() {
                     variant="contained"
                     className="submit"
                     label="SUBMIT"
-                ></Button>
+                ></Button></NavLink>  
             </form>
         </div>
     )
