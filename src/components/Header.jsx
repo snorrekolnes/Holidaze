@@ -1,15 +1,16 @@
 //import React from 'react';
-import {NavLink} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 import Holidaze from "../assets/img/Holidaze-logo-1.svg"
 import { useState } from "react";
 import Profile from "../assets/img/Holidaze-profile.svg"
 import Profile2 from "../assets/img/Profile.png"
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
    const logout = () => {
     localStorage.clear();
-    window.location.reload();
+    window.location.href = "/";
   }
     
 return (
@@ -58,7 +59,7 @@ return (
         <li className="mr-3">
               <span
                 id="signUp-btn"
-                className="inline-block text-HOLIDAZE-BLACK font-Josefin no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK font-Josefin no-underline hover:text-underline py-2 px-4"
                 href="./create.html"
                 >Sign Up
          </span >
@@ -69,26 +70,26 @@ return (
             <li className="mr-3">
               <span
                 id="login-btn"
-                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin  hover:text-underline py-2 px-4"
                 href="#"
                 >Login
             </span >
             </li>
             </NavLink> </> }
-            <NavLink to="createvenue">
+            {localStorage.venueManager ==="true" &&     <NavLink to="createvenue">
             <li className="mr-3">
               <span
                 id="logout-btn"
-                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin  hover:text-underline py-2 px-4"
                 href="#"
                 >Create Venue
             </span>
             </li>
-            </NavLink>
+            </NavLink>}
             <li className="mr-3">
               <span onClick={logout}
                 id="logout-btn"
-                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-underline py-2 px-4"
                 href="#"
                 >Log Out
             </span >
@@ -111,7 +112,7 @@ return (
         <li className="mr-3">
               <span
                 id="signUp-btn"
-                className="inline-block text-HOLIDAZE-BLACK font-Josefin no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK font-Josefin no-underline  hover:text-underline py-2 px-4"
                 href="./create.html"
                 >Sign Up
          </span >
@@ -122,17 +123,17 @@ return (
             <li className="mr-3">
               <span
                 id="login-btn"
-                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin  hover:text-underline py-2 px-4"
                 href="#"
                 >Login
             </span >
             </li>
             </NavLink> </> }
-            {localStorage.venueManager === "true" &&      <NavLink to="createvenue">
+            {localStorage.venueManager ==="true" &&      <NavLink to="createvenue">
             <li className="mr-3">
               <span
                 id="create-btn"
-                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin  hover:text-underline py-2 px-4"
                 href="#"
                 >Create Venue
             </span>
@@ -141,7 +142,7 @@ return (
             {localStorage.accessToken && <li className="mr-3">
               <span onClick={logout}
                 id="logout-btn"
-                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:cursor-pointer  hover:text-gray-200 hover:text-underline py-2 px-4"
+                className="inline-block text-HOLIDAZE-BLACK no-underline font-Josefin hover:cursor-pointer   hover:text-underline py-2 px-4"
                 href="#"
                 >Log Out
             </span >

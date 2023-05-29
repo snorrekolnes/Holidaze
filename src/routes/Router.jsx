@@ -8,8 +8,10 @@ import Profile from '../components/views/Profile';
 import Signup from '../components/views/SignUp';
 import Update from '../components/views/UpdateAvatar';
 import VenuesById from '../components/views/VenueById';
-
-
+import UpdateManagerState from '../components/views/UpdateManagerState';
+import ProfileVenues from '../components/views/ProfileVenues';
+import ProfileBookings from '../components/views/ProfileBookings';
+import UpdateVenue from '../components/views/UpdatePost';
 //import CreateVenue from "../components/views/CreateVenue";
 //import Profile from "../components/views/Profile";
 //import LoginForm from "../components/views/LoginReduxTest";
@@ -28,6 +30,10 @@ function Router() {
                 <Route path="/createvenue" element={<CreateVenue/>}/>
                 <Route path="/venuesbyid/:id" element={<VenuesById/>}/>
                 <Route path="/update" element={<Update/>}/>
+                <Route path="/updatemanager" element={<UpdateManagerState/>}/>
+                <Route path="/profilevenues" element={<ProfileVenues/>}/>
+                <Route path="/profilebookings" element={<ProfileBookings/>}/>
+                <Route path="/editvenue/:id" element={<UpdateVenue/>}/>
             </Routes>
         </>
     );

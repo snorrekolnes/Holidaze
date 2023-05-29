@@ -11,8 +11,12 @@ import { NavLink } from 'react-router-dom';
 
 function Home() {
   const CHARACTER_LIMIT = 20;
+  const {name, token} = useSelector(state => state.auth)
+  console.log(name, token)
+  const welcomeName =   JSON.parse(name)
     const dispatch = useDispatch();
     const {venues} = useSelector(state => state.venues);
+
     console.log("venuedata", venues)
     useEffect(() => {
         dispatch(fetchVenues());
@@ -22,8 +26,109 @@ function Home() {
     // grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8
     //if (venues.venue.media === []){         MuiBox-root MuiTypography-root   css-huuc1k
     //    return venues.venue.media = ["https://unsplash.com/photos/BSQq5dRT_KU"]}
+
     return (
       <div>
+
+
+
+
+
+{localStorage.venueManager   &&
+             <div className='hero mt-36  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
+             <div className='max-w-sm items-center m-auto'>
+            <h1 className="my-4  text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
+               Welcome Back {welcomeName}
+             </h1>
+             <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
+               Feeling Lucky?
+             </h1>
+             <Button  
+                                   sx={{ color: 'black',
+                                 
+                                   mt:3, 
+                                 backgroundColor: 'white', 
+                                 borderColor: 'white',
+                                 ":hover": {
+                                   bgcolor: "pink",
+                                   color: "white"
+                                 }
+                               
+                               }}
+ 
+                             type="submit"
+                             fullWidth
+                             variant="contained"
+                             className="submit"
+                           >
+                             Create A Venue
+                           </Button></div>
+            </div>}
+
+
+{localStorage.accesToken  &&  !localStorage.venueManager &&
+             <div className='hero mt-40  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
+             <div className='max-w-sm items-center m-auto'>
+            <h1 className="my-4 text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
+               Want To Become A Venue Manager?
+             </h1>
+             <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
+               Start Today!
+             </h1>
+             <Button 
+                                   sx={{ color: 'black',
+                                 
+                                   mt:3, 
+                                 backgroundColor: 'white', 
+                                 borderColor: 'white',
+                                 ":hover": {
+                                   bgcolor: "pink",
+                                   color: "white"
+                                 }
+                               
+                               }}
+ 
+                             type="submit"
+                             fullWidth
+                             variant="contained"
+                             className="submit"
+                           >
+                             Become A Manager
+                           </Button></div>
+            </div>}
+
+            {!localStorage.accessToken  &&    
+           <div className='hero mt-40  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
+            <div className='max-w-sm items-center m-auto'>
+           <h1 className="my-4 text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
+              What Are You Waiting For?
+            </h1>
+            <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
+              Book Your Next Holiday With us!
+            </h1>
+            <Button 
+                                  sx={{ color: 'black',
+                                
+                                  mt:3, 
+                                backgroundColor: 'white', 
+                                borderColor: 'white',
+                                ":hover": {
+                                  bgcolor: "pink",
+                                  color: "white"
+                                }
+                              
+                              }}
+
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            className="submit"
+                          >
+                            Create Account
+                          </Button></div>
+           </div>}
+
+{/*
         <div className='hero mt-40  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
         <h1 className="my-4 text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
            What Are You Waiting For?
@@ -31,10 +136,15 @@ function Home() {
          <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
            Book Your Next Holiday With us!
          </h1>
+                            </div> */}
 
 
-        </div>
+
+
+
+
         <div className='background bg-HOLIDAZE-BROWN'>
+       
         <div 
                             className="inner mt-0 grid lMobile:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-2 desktop:grid-cols-4 gap-4 mr-20 ml-20 ">
                             {venues.map((venue) =>(
@@ -94,8 +204,8 @@ label={`$ ${venue.price}`} color="success" variant="outlined" />
 <NavLink to={"/venuesbyid/" + venue.id}>
 <Button
 sx={{
-  mr:3,
-  ml:3,
+  mr:1,
+  ml:1,
   color: 'black', 
 backgroundColor: 'white', 
 borderColor: 'white',
@@ -109,6 +219,7 @@ variant="text">View</Button>
 </NavLink>
 <Chip
 sx={{
+  fontSize:12,
   color: 'gray',
   '& .MuiChip-label': {
     color: 'gray',
