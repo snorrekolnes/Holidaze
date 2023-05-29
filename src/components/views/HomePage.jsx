@@ -13,7 +13,10 @@ function Home() {
   const CHARACTER_LIMIT = 20;
   const {name, token} = useSelector(state => state.auth)
   console.log(name, token)
-  const welcomeName =   JSON.parse(name)
+  let welcomeName;
+  if (name ){
+    welcomeName = JSON.parse(name)
+  }
   console.log("faaaaak", welcomeName)
     const dispatch = useDispatch();
     const {venues} = useSelector(state => state.venues);
