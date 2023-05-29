@@ -13,7 +13,8 @@ function Home() {
   const CHARACTER_LIMIT = 20;
   const {name, token} = useSelector(state => state.auth)
   console.log(name, token)
- // const welcomeName =   JSON.parse(name)
+  const welcomeName =   JSON.parse(name)
+  console.log("faaaaak", welcomeName)
     const dispatch = useDispatch();
     const {venues} = useSelector(state => state.venues);
 
@@ -38,7 +39,7 @@ function Home() {
              <div className='hero mt-36  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
              <div className='max-w-sm items-center m-auto'>
             <h1 className="my-4  text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
-               Welcome Back {name}
+               Welcome Back {welcomeName}
              </h1>
              <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
                Feeling Lucky?
