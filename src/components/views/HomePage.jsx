@@ -35,7 +35,7 @@ function Home() {
 
 
 
-{localStorage.venueManager   &&
+{localStorage.venueManager   && 
              <div className='hero mt-36  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
              <div className='max-w-sm items-center m-auto'>
             <h1 className="my-4  text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
@@ -67,7 +67,7 @@ function Home() {
             </div>}
 
 
-{localStorage.accesToken  &&  !localStorage.venueManager &&
+{localStorage.accessToken  &&  !localStorage.venueManager &&
              <div className='hero mt-40  flex flex-col text-center object-cover h-96 w-full bg-red-600'>
              <div className='max-w-sm items-center m-auto'>
             <h1 className="my-4 text-5xl max-w-sm m-auto tablet:max-w-md laptop:max-w-lg text-white font-bold leading-tight">
