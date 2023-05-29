@@ -79,7 +79,7 @@ function UpdateAvatar() {
                            type="email"
                            onChange={e => setAvatar(e.target.value)}
                 />
-         <NavLink to = "/Profile">      <Button
+         <NavLink to = "Profile">      <Button
                     sx={{
                         color: 'black',
                         mt: 3,

@@ -58,7 +58,7 @@ function UpdateManagerState() {
                                 defaultChecked
                                 onChange={e => setVenueManager(e.target.checked)}
                                 />
-            <NavLink to = "/Profile">   <Button
+            <NavLink to = "Profile">   <Button
                     sx={{
                         color: 'black',
                         mt: 3,
