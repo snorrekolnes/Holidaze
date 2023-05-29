@@ -452,8 +452,7 @@ import { Navigate } from "react-router-dom";
                           Wifi
                         </Typography>
                           <Checkbox 
-                            labelStyle={{color: 'white'}}
-                            iconStyle={{fill: 'white'}}
+                           
                                 defaultChecked
                                 onChange={e => setWifi(e.target.checked)}
                                 />
