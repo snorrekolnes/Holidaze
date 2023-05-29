@@ -66,6 +66,7 @@ function Home() {
              <h1 className="my-22 text-3xl max-w-sm tablet:max-w-md laptop:max-w-lg m-auto text-white font-bold leading-tight">
                Start Today!
              </h1>
+             <NavLink to="/updatemanager">
              <Button 
                                    sx={{ color: 'black',
                                  
@@ -85,7 +86,9 @@ function Home() {
                              className="submit"
                            >
                              Become A Manager
-                           </Button></div>
+                           </Button>
+                           </NavLink>
+                           </div>
             </div>}
 
             {!localStorage.accessToken  &&    
