@@ -40,7 +40,7 @@ function UpdateManagerState() {
         const response = await updateUserManagerState(manager);
         console.log("response: ",response);
         localStorage.setItem('venueManager', JSON.stringify(response.venueManager));
-        window.location.href = "/profile";
+        window.location.href = "/Profile";
     }
     return (
         <div>

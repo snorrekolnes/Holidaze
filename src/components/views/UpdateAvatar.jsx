@@ -37,7 +37,7 @@ function UpdateAvatar() {
         console.log("avatar: ",avatar);
         const response = await updateUserAvatar(avatar);
         console.log("response: ",response);
-        window.location.href = "/profile";
+        window.location.href = "/Profile";
     }
     return (
         <div>
